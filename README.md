@@ -2,7 +2,7 @@
 
 # CREDIT CARD FRAUD DETECTION
 
-Project aim is to analyse data containing both fraudulent and non-fraudulent credit card transaction data and use this to build a machine learning model that can accurately predict a fraudulent transaction in the future. This is important to minimise the amount of customers and vendors who are negatively impacted by the large scale of global credit card fraud.
+The project aim is to analyse a dataset containing both fraudulent and non-fraudulent credit card transactions and use this to build a machine learning model that can accurately predict a fraudulent transaction in the future. This is important to help minimise the number of customers and vendors who are negatively impacted on a daily basis by the large scale of global credit card fraud.
 The project will use a number of techniques to attempt to make the performance of the model as strong as possible.
 
 ## DATA
@@ -23,10 +23,47 @@ Features V1, V2, … V28 are the principal components obtained with PCA, the onl
 - Feature 'Class' is the response variable and it takes value 1 in case of fraud and 0 otherwise.
 
 ## MODEL 
-A summary of the model you’re using and why you chose it. 
+The model used will be a Random Forest Classifier (RFC) for the following reasons:
+
+- Handles high-dimensional data (data with a large number of features). As credit card transactions often involve a large number of features relating to the buyer, vendor, amount, time and location this makes it a good candidate for a RFC.
+
+- Handles imbalanced data: In credit card fraud detection, fraudulent transactions are typically rare compared to legitimate transactions, resulting in imbalanced data and this is very true in the chosen dataset. RFCs are capable of handling imbalanced data.
+
+- Provides feature importance: RFCs provide a measure of feature importance, which can help in identifying the most important features in predicting fraudulent transactions. This information can then be used to help improve model performance.
+
+- Reduces overfitting: Random Forest Classifier reduces overfitting by creating multiple decision trees and aggregating their results. This helps to improve the generalization performance of the model and prevent overfitting to the training data.
+
+- High accuracy: Random Forest Classifier has been shown to achieve high accuracy in many classification tasks, including fraud detection in credit card transactions.
 
 ## HYPERPARAMETER OPTIMSATION
-Description of which hyperparameters you have and how you chose to optimise them. 
+Hyperparameter Optimisation will be performed using Random Search, Grid Search and Bayesian Optimisation to then enable comparison of these different approaches. 
+The hyperparameters to be tuned are the key parameters for building RFCs and are:
+- Criterion : The function to measure the quality of a split [' Gini' or 'Entropy']
+- n_estimators : The number of trees in the forest [range(10, 50)]
+- max_depth : The maximum depth of the tree. If None, then nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples [None]
+- max_features : The number of features to consider when looking for the best split [range(2, 10)]
+- min_samples_split : The minimum number of samples required to split an internal node [range(2, 8)]
+- min_samples_leaf : The minimum number of samples required to be at a leaf node. A split point at any depth will only be considered if it leaves at least min_samples_leaf samples in each of the left and right branches [range(1, 7)]
+- bootstrap : Whether bootstrap samples are used when building trees. If False, the whole dataset is used to build each tree [True, False]
+
+
+    'criterion': hp.choice('criterion', ['entropy', 'gini']),
+    'n_estimators': hp.choice('n_estimators', range(10, 50)),
+    'max_depth': hp.choice('max_depth', [None]),
+    'max_features': hp.choice('max_features', range(2, 10)),
+    'min_samples_split': hp.choice('min_samples_split', range(2, 8)),
+    'min_samples_leaf': hp.choice('min_samples_leaf', range(1, 7)),
+    'bootstrap': hp.choice('bootstrap', [True, False])
+    
+    
+    'criterion': best['criterion'],
+    'n_estimators': best['n_estimators'],
+    'max_depth': best['max_depth'],
+    'max_features': best['max_features'],
+    'min_samples_split': best['min_samples_split'],
+    'min_samples_leaf': best['min_samples_leaf'],
+    'bootstrap': best['bootstrap']
+
 
 ## RESULTS
 A summary of your results and what you can learn from your model 
