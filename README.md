@@ -46,31 +46,11 @@ The hyperparameters to be tuned are the key parameters for building RFCs and are
 - min_samples_leaf : The minimum number of samples required to be at a leaf node. A split point at any depth will only be considered if it leaves at least min_samples_leaf samples in each of the left and right branches [range(1, 7)]
 - bootstrap : Whether bootstrap samples are used when building trees. If False, the whole dataset is used to build each tree [True, False]
 
-
-    'criterion': hp.choice('criterion', ['entropy', 'gini']),
-    'n_estimators': hp.choice('n_estimators', range(10, 50)),
-    'max_depth': hp.choice('max_depth', [None]),
-    'max_features': hp.choice('max_features', range(2, 10)),
-    'min_samples_split': hp.choice('min_samples_split', range(2, 8)),
-    'min_samples_leaf': hp.choice('min_samples_leaf', range(1, 7)),
-    'bootstrap': hp.choice('bootstrap', [True, False])
-    
-    
-    'criterion': best['criterion'],
-    'n_estimators': best['n_estimators'],
-    'max_depth': best['max_depth'],
-    'max_features': best['max_features'],
-    'min_samples_split': best['min_samples_split'],
-    'min_samples_leaf': best['min_samples_leaf'],
-    'bootstrap': best['bootstrap']
-
-
 ## RESULTS
 A summary of your results and what you can learn from your model 
 
 You can include images of plots using the code below:
 ![Screenshot](image.png)
 
-## (OPTIONAL: CONTACT DETAILS)
-If you are planning on making your github repo public you may wish to include some contact information such as a link to your twitter or an email address. 
+
 
