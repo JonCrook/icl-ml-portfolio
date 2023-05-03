@@ -46,12 +46,44 @@ Other key packages are:
 
 ## Performance
 
-Give a summary graph or metrics of how the model performs. Remember to include how you are measuring the performance and what data you analysed it on. 
+Final best model performance was measured on the full dataset with all of the original features split into 80/20 training and test. Time and Amount were scaled.
+
+Undersampling enabled strong identification of feature importance but produced a highly overfitted model.
+
+Oversampling gave the best performance.
+
+Identifying low importance features enabled faster hyperparameter optimisation runs and then improved final model performance.
+
+Removing outliers from the features with high importance to the target class did not have a positive effect. More work needed to see if this can be made to add value.
+
+The performance metrics for each of the versions of the model are as per the following table:
+
+|index|Desc|Precision|Recall|F1|AUPRC|Reduced Features|Outliers Removed|Oversampled|Undersampled|Hyperparams Optimised|
+|---|---|---|---|---|---|---|---|---|---|---|
+|0|1st run - basic RFC|0\.943|0\.769|0\.847|0\.827|false|false|false|false|false|
+|1|2nd run - Reduced Features|0\.912|0\.769|0\.834|0\.816|true|false|false|false|false|
+|2|3rd run - Undersampled RFC|0\.044|0\.898|0\.084|0\.746|false|true|false|true|false|
+|3|4th run - Oversampled RFC|0\.939|0\.786|0\.856|0\.87|false|false|true|false|false|
+|4|5th run - Oversampled RFC|0\.952|0\.806|0\.873|0\.859|false|true|true|false|false|
+|5|6th run - Random Opt|0\.169|0\.888|0\.283|0\.719|true|false|false|false|Random|
+|6|7th run - Grid Opt|0\.251|0\.888|0\.391|0\.775|true|false|false|false|Grid|
+|7|8th run - BO Opt|0\.951|0\.796|0\.867|0\.871|true|false|false|false|BO|
+|8|9th run - Best Model|0\.942|0\.827|0\.88|0\.892|true|false|true|false|BO|
+
+The improvement in Area Under the Precision-Recall Curve can be seen by comparing the initial PR Curve against the final best model PR Curve:
+
+
+![Screenshot](prc_1.png)
+![Screenshot](prc_2.png)
+
+
 
 ## Limitations
 
-Outline the limitations of your model.
+The model is limited by focusing on dealing with the imbalanced dataset rather than finding the best classifier model. Logistic regression, Neural Network or Support Vector Machine models may perform better in the actual classificaiton of fraud task.
 
 ## Trade-offs
 
-Outline any trade-offs of your model, such as any circumstances where the model exhibits performance issues. 
+A trade-off was made to reduce the dimensionality before running Hyperparameter optimisation. This was done due to limited compute power in the Google Colab runtimes and was necessary to keep the optimisation run time between 2-4 hours.
+
+The decision on which features to remove was undertaken after close analysis of the feature correlation to the target class. The final best model was run on this reduced feature dataset to get the best performance however an outcome of removing these 17 features may have been to reduce the maximum performance of the optimisation runs and absolute best model output.
