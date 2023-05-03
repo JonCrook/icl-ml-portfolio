@@ -47,7 +47,24 @@ The hyperparameters to be tuned are the key parameters for building RFCs and are
 - bootstrap : Whether bootstrap samples are used when building trees. If False, the whole dataset is used to build each tree [True, False]
 
 ## RESULTS
-A summary of your results and what you can learn from your model 
+Summary of the techniques deployed and their impact:
+
+Undersampling enabled strong identification of feature importance but produced a highly overfitted model.
+
+Oversampling gave the best performance.
+
+Identifying low importance features enabled faster hyperparameter optimisation runs and then improved final model performance.
+
+Removing outliers from the features with high importance to the target class did not have a positive effect. More work needed to see if this can be made to add value.
+
+The performance metrics for each of the versions of the model are as per the following table:
+
+
+The improvement in Area Under the Precision-Recall Curve can be seen by comparing the initial PR Curve against the final best model PR Curve:
+
+
+![Screenshot](prc_1.png)
+![Screenshot](prc_2.png)
 
 You can include images of plots using the code below:
 ![Screenshot](image.png)
