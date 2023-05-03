@@ -73,6 +73,8 @@ The performance metrics for each of the versions of the model are as per the fol
 |7|8th run - BO Opt|0\.951|0\.796|0\.867|0\.871|true|false|false|false|BO|
 |8|9th run - Best Model|0\.942|0\.827|0\.88|0\.892|true|false|true|false|BO|
 
+NB: The final best model run shown in the Python Notebook was undertaken with the full set of features and shows slightly worse AUPRC performance than the recorded 9th run undertaken with the reduced feature set.
+
 The improvement in Area Under the Precision-Recall Curve can be seen by comparing the initial PR Curve against the final best model PR Curve:
 
 
