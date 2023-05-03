@@ -1,6 +1,5 @@
 # Model Card
 
-See the [example Google model cards](https://modelcards.withgoogle.com/model-reports) for inspiration. 
 
 ## Model Description
 
