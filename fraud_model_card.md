@@ -20,7 +20,7 @@ Due to confidentiality issues, the original features and more background informa
 
 **Output:**
 
-The model outputs a dataframe showing the progression of the analysis and model building through the notebook as different analysis, optimisation and overfitting reduction techniques are attempted.
+The model outputs a dataframe that shows the progression of the model building as different analysis, optimisation and overfitting reduction techniques are attempted.
 
 The performance of each version of the model is determined through the following metrics:
 
@@ -46,17 +46,17 @@ Other key packages are:
 
 ## Performance
 
-Final best model performance was measured on the full dataset with all of the original features split into 80/20 training and test. Time and Amount were scaled.
+Final best model performance was measured on the full dataset with all of the original features split into 80/20 training and test. Time and Amount were scaled. The metric Area Under the Precision-Recall Curve (AUPRC) was used to determine the best performing model.
 
-Undersampling enabled strong identification of feature importance but produced a highly overfitted model.
+- Undersampling enabled strong identification of feature importance but produced a highly overfitted model.
 
-Oversampling gave the best performance.
+- Oversampling gave the best performance.
 
-Identifying low importance features enabled faster hyperparameter optimisation runs and then improved final model performance.
+- Identifying low importance features enabled faster hyperparameter optimisation runs and then improved final model performance.
 
-Removing outliers from the features with high importance to the target class did not have a positive effect. More work needed to see if this can be made to add value.
+- Removing outliers from the features with high importance to the target class did not have a positive effect. More work needed to see if this can be made to add value.
 
-The performance metrics for each of the versions of the model are as per the following table:
+The performance metrics for each of the versions of the model are as per the following table (AUPRC is the key metric):
 
 |index|Desc|Precision|Recall|F1|AUPRC|Reduced Features|Outliers Removed|Oversampled|Undersampled|Hyperparams Optimised|
 |---|---|---|---|---|---|---|---|---|---|---|
