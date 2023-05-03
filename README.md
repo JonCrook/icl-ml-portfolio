@@ -3,7 +3,7 @@
 # CREDIT CARD FRAUD DETECTION
 
 The project aim is to analyse a dataset containing both fraudulent and non-fraudulent credit card transactions and use this to build a machine learning model that can accurately predict a fraudulent transaction in the future. This is important to help minimise the number of customers and vendors who are negatively impacted on a daily basis by the large scale of global credit card fraud.
-The project will use a number of techniques to attempt to make the performance of the model as strong as possible.
+The project will use a number of techniques to attempt to make the performance of the model in detecting fraudulent cases as strong as possible. At the same time it is also vital that the model minimises the number of non-fraud cases it incorrectly identifies as fraud so that customers do not have legitimate transactions blocked.
 
 ## DATA
 The dataset contains transactions made by credit cards in September 2013 by European cardholders. 
