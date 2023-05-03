@@ -18,7 +18,7 @@ Due to confidentiality issues, the original features and more background informa
 - Feature 'Amount' is the transaction Amount, this feature can be used for example-dependant cost-sensitive learning.
 - Feature 'Class' is the response variable a value 1 in case of fraud and 0 otherwise.
 
-**Output:** Describe the output(s) of your model
+**Output:**
 
 The model outputs a dataframe showing the progression of the analysis and model building through the notebook as different analysis, optimisation and overfitting reduction techniques are attempted.
 
@@ -33,7 +33,16 @@ The performance of each version of the model is determined through the following
 - Area Under the Precision-Recall Curve (AUPRC) = recommended metric by the dataset owners due to the class imbalance. A high area under the curve represents both high recall and high precision, where high precision relates to a low false positive rate, and high recall relates to a low false negative rate
 
 
-**Model Architecture:** Describe the model architecture you’ve used
+**Model Architecture:**
+
+A Random Forest Classifier is used from the sklearn.ensemble Python package.
+
+Other key packages are:
+- sklearn.metrics.precision_recall_curve, auc = to determine the AUPRC metric
+- sklearn.metrics.classification_report = to determine precision, recall and f1
+- imblearn.over_sampling.RandomOverSampler = to undertake random oversampling
+- sklearn.model_selection.RandomizedSearchCV, GridSearchCV = for hyperparameter optimisation
+- hyperopt bayesian optimisation package for hyperparameter optmisation
 
 ## Performance
 
