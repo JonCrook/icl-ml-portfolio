@@ -49,13 +49,15 @@ The hyperparameters to be tuned are the key parameters for building RFCs and are
 ## RESULTS
 Summary of the techniques deployed and their impact:
 
-Undersampling enabled strong identification of feature importance but produced a highly overfitted model.
+- Undersampling enabled strong identification of feature importance but produced a highly overfitted model.
 
-Oversampling gave the best performance.
+- Oversampling gave the best performance.
 
-Identifying low importance features enabled faster hyperparameter optimisation runs and then improved final model performance.
+- Identifying low importance features enabled faster hyperparameter optimisation runs and then improved final model performance.
 
-Removing outliers from the features with high importance to the target class did not have a positive effect. More work needed to see if this can be made to add value.
+- Removing outliers from the features with high importance to the target class did not have a positive effect. More work needed to see if this can be made to add value.
+
+- The metric Area Under the Precision-Recall Curve (AUPRC) was used to determine the best performing model.
 
 The performance metrics for each of the versions of the model are as per the following table:
 
